@@ -5,7 +5,7 @@ ARG MRBS_RELEASE=v1.11.6
 ARG SIMPLESAMLPHP_RELEASE=1.19.9
 ARG MODERN_MRBS_THEME_RELEASE=v0.5.1
 
-LABEL maintainer="Dorian Zedler <mail@dorian.im>"
+LABEL maintainer="Dennis Neuhaus <d.neuhaus@factorycampus.biz>"
 
 ENV MRBS_DB_SYSTEM="mysql"
 ENV S6_STAGE2_HOOK="/init-hook"
@@ -42,7 +42,7 @@ RUN \
   rm -rf /app/www && \
   mkdir -p /app/www/public && \
   curl -o /tmp/mrbs.tar.gz -L \
-    "https://github.com/meeting-room-booking-system/mrbs-code/archive/${MRBS_RELEASE}.tar.gz" && \
+    "https://github.com/FactoryCampus/mrbs-code/archive/${MRBS_RELEASE}.tar.gz" && \
 
   echo "**** extract only folder 'web' ****" && \
   tar -C /app/www/public --strip-components=2 -zxvf /tmp/mrbs.tar.gz $(tar --exclude="*/*" -tf /tmp/mrbs.tar.gz)web && \
